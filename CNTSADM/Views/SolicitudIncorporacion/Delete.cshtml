@@ -1,0 +1,99 @@
+﻿@model CNTS.Models.k_solicitud_incorporacion
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+    ViewBag.Title = "Revisar Solicitud";
+}
+
+<h2>Borrar</h2>
+
+<h3>Confirmar borrado?</h3>
+<div>
+    <h4>k_solicitud_incorporacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio_licencia_sanitaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio_licencia_sanitaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio_aviso_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio_aviso_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.razon_social)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.razon_social)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rfc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rfc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_entidad_federativa.cl_entidad_federativa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_entidad_federativa.cl_entidad_federativa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_institucion.cl_institucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_institucion.cl_institucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

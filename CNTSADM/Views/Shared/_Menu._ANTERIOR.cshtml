@@ -1,0 +1,211 @@
+﻿@using CNTS.Seguridad
+@using CNTS.Utilidades
+
+@{ 
+    bool showAdministracion = false;
+
+    bool showSeguimiento = false;
+
+    bool showConsultas = false;
+
+    string[] administracion = { "Rol", "Usuario", "PoliticaSeguridad", "Area", "EntidadFederativa", "EspecialidadResponsable", "Institucion", "TipoEstablecimiento", "Establecimiento", "Periodo" };
+    string[] seguimiento = { "Rol", "AtiendeSolicitud", "RevisaDocumento" };
+    string[] consultas = { "Rol" };
+
+    foreach (string str in administracion)
+    {
+        if (showAdministracion)
+        {
+            break;
+        }
+        foreach(string fn in ((((IdentityPersonalizado)User.Identity).Funciones)))
+        {
+            if(str.Equals(fn))
+            {
+                showAdministracion = true;
+                break;
+            }
+        }
+    }
+
+    foreach (string str in seguimiento)
+    {
+        if (showSeguimiento)
+        {
+            break;
+        }
+        foreach (string fn in ((((IdentityPersonalizado)User.Identity).Funciones)))
+        {
+            if (str.Equals(fn))
+            {
+                showSeguimiento = true;
+                break;
+            }
+        }
+    }
+
+    foreach (string str in consultas)
+    {
+        if (showConsultas)
+        {
+            break;
+        }
+        foreach (string fn in ((((IdentityPersonalizado)User.Identity).Funciones)))
+        {
+            if (str.Equals(fn))
+            {
+                showConsultas = true;
+                break;
+            }
+        }
+    }
+}
+
+<style>
+    .dropdown-submenu {
+        position: relative;
+    }
+
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Hamburger-menu">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CNTS - Plataforma de Informes</a>
+        </div>
+        <div class="collapse navbar-collapse" id="Hamburger-menu">
+            <ul class="nav navbar-nav">
+            @if (showAdministracion)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catálogos/Administración <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="Area" hidden="hidden">@Html.ActionLink("Áreas", "Index", "Area")</li>
+                        <li class="EntidadFederativa" hidden="hidden">@Html.ActionLink("Entidades Federativas", "Index", "EntidadFederativa")</li>
+                        <li class="EspecialidadResponsable" hidden="hidden">@Html.ActionLink("Especialidades (Responsable)", "Index", "EspecialidadResponsable")</li>
+                        <li class="Institucion" hidden="hidden">@Html.ActionLink("Instituciones", "Index", "Institucion")</li>
+
+                        <li class="divider TipoEstablecimiento Establecimiento" hidden="hidden"></li>
+                        <li class="TipoEstablecimiento" hidden="hidden">@Html.ActionLink("Tipos de Establecimiento", "Index", "TipoEstablecimiento")</li>
+                        <li class="Establecimiento" hidden="hidden">@Html.ActionLink("Establecimientos", "Index", "Establecimiento")</li>
+
+                        <li class="divider Periodo" hidden="hidden"></li>
+                        <li class="Periodo" hidden="hidden">@Html.ActionLink("Periodos", "Index", "Periodo")</li>
+
+                        <li class="divider Rol Usuario PoliticaSeguridad" hidden="hidden"></li>
+                        <li class="dropdown-submenu Rol Usuario PoliticaSeguridad" hidden="hidden">
+                            <a tabindex="-1" href="#">Seguridad</a>
+                            <ul class="dropdown-menu">
+                                <li class="Rol" hidden="hidden">@Html.ActionLink("Roles", "Index", "Rol")</li>
+                                <li class="Usuario" hidden="hidden">@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                                <li class="PoliticaSeguridad" hidden="hidden">@Html.ActionLink("Políticas de Seguridad", "Index", "PoliticasSeguridad")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            }
+
+            @if (showSeguimiento)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seguimiento <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="Rol" hidden="hidden">@Html.ActionLink("Control de Establecimientos", "Index", "")</li>
+                        <li class="divider Rol" hidden="hidden"></li>
+                        <li class="AtiendeSolicitud" hidden="hidden">@Html.ActionLink("Solicitudes de Incorporación", "Index", "")</li>
+                        <li class="RevisaDocumento" hidden="hidden">@Html.ActionLink("Revisión de Documentos", "Index", "")</li>
+                        <li class="divider Rol" hidden="hidden"></li>
+                        <li class="Rol" hidden="hidden">@Html.ActionLink("Control de Periodos", "Index", "")</li>
+                    </ul>
+                </li>
+            }
+
+            @if (showConsultas)
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="Rol" hidden="hidden">@Html.ActionLink("General de Establecimientos", "Index", "")</li>
+                        <li class="Rol" hidden="hidden">@Html.ActionLink("Informes de Establecimientos", "Index", "")</li>
+                    </ul>
+                </li>
+            }
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>&emsp;@User.Identity.Name<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="disabled">&emsp;@(((IdentityPersonalizado)User.Identity).Email_principal)&emsp;</li>
+                        <li class="disabled">&emsp;Último acceso: &emsp;</li>
+                        <li class="disabled">&emsp;
+                        @(Utilidades.getLastConnection())
+                        &emsp;</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Cambiar contraseña", "ChangePassword", "UsuarioNR")</li>
+                        <li>@Html.ActionLink("Editar datos de usuario", "Editar", "UsuarioNR")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Manual del Sistema", "Index", "")</li>
+                        <li>@Html.ActionLink("Cerrar sesión", "Logoff", "Inicio")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<script>
+    $(document).ready(function () {
+        var array = @Html.Raw(Json.Encode((((IdentityPersonalizado)User.Identity).Funciones)));
+        for (var i = 0; i < array.length; i++) {
+            $("." + array[i]).show();
+        }
+    });
+</script>

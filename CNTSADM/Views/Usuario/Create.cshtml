@@ -1,0 +1,166 @@
+﻿@model CNTS.Models.c_usuario
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+    ViewBag.Title = "";
+}
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            container: 'body'
+        });
+    });
+</script>
+
+<h2>Agregar</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Clave</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.cl_usuario, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="La clave es númerica y puede contener hasta 4 digitos.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cl_usuario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Nombre</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.nb_usuario, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="El largo máximo del nombre es de 256 caracteres.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nb_usuario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Contraseña</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="El largo máximo de la contraseña es de 256 caracteres.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Correo electrónico principal</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.email_principal, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="Debe ser una dirección de correo electrónico valida.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.email_principal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Número telefónico</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.no_telefono, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="Debe ser una número telefónico valido.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.no_telefono, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">¿Está activo?</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.esta_activo)
+                        @Html.ValidationMessageFor(model => model.esta_activo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">¿Es super usuario?</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.es_super_usuario)
+                        @Html.ValidationMessageFor(model => model.es_super_usuario, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-xs-3 col-md-2">Puesto</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.nb_puesto, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="focus" data-content="El puesto del usuario puede ser cualquier texto menor o igual a 256 caracteres.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nb_puesto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-6 col-md-5">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                    @Html.ActionLink("Regresar", "Index", "Usuario", new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,34 @@
+﻿@model CNTS.Models.c_tipo_establecimiento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>c_tipo_establecimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_tipo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_tipo_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_tipo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_tipo_establecimiento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_tipo_establecimiento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

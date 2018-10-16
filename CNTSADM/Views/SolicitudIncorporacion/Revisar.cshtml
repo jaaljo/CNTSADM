@@ -1,0 +1,329 @@
+﻿@model CNTS.Models.k_solicitud_incorporacion
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+    ViewBag.Title = "Revisar Solicitud";
+}
+
+<script src="https://framework-gb.cdn.gob.mx/assets/scripts/jquery-ui-datepicker.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#fe_emision_licencia_sanitaria').datepicker({ changeYear: true });
+    });
+
+    $(document).ready(function () {
+        $('#fe_vigencia_licencia_sanitaria').datepicker({ changeYear: true });
+    });
+
+    $(document).ready(function () {
+        $('#fe_emision_aviso_responsable').datepicker({ changeYear: true });
+    });
+
+    $(document).ready(function () {
+        $('#fe_vigencia_aviso_responsable').datepicker({ changeYear: true });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('data-toggle="tooltip"').tooltip();
+    });
+</script>
+
+<h2>Solicitud de Incorporación</h2>
+@Html.ActionLink("Licencia Sanitaria", "DescargaPDF", new { @controller = "SolicitudIncorporacion", @id = Model.id_solicitud_incorporacion, @tipo = 1 }, new { @class = "btn btn-default" })
+&emsp;
+@Html.ActionLink("Aviso Responsable", "DescargaPDF", new { @controller = "SolicitudIncorporacion", @id = Model.id_solicitud_incorporacion, @tipo = 2 }, new { @class = "btn btn-default" })
+<hr />
+<div class="col-md-12">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id_solicitud_incorporacion)
+        @Html.HiddenFor(model => model.fe_solicitud)
+        @Html.HiddenFor(model => model.email_principal_responsable)
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="nb_establecimiento">Nombre del Establecimiento*:</label>
+                    @Html.EditorFor(model => model.nb_establecimiento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nb_establecimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="id_tipo_establecimiento">Tipo de Establecimiento*:</label>
+                    @Html.DropDownList("id_tipo_establecimiento", null, "-Seleccione el Tipo de Establecimiento-", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="id_institucion">Sector*:</label>
+                    @Html.DropDownList("id_institucion", null, "-Seleccione el Tipo de Institución-", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="codigo_establecimiento">Código:</label>
+                    @Html.EditorFor(model => model.codigo_establecimiento, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.codigo_establecimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="razon_social">Razón Social*:</label>
+                    @Html.EditorFor(model => model.razon_social, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.razon_social, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="rfc">R.F.C.:</label>
+                    @Html.EditorFor(model => model.rfc, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="nb_responsable">Responsable*:</label>
+                    @Html.EditorFor(model => model.nb_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nb_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="cedula_responsable">Cédula Profesional*:</label>
+                    @Html.EditorFor(model => model.cedula_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cedula_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="especialidad_responsable">Especialidad*:</label>
+                    @Html.EditorFor(model => model.especialidad_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.especialidad_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="nb_director_unidad">Director de Unidad Médica*:</label>
+                    @Html.EditorFor(model => model.nb_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.nb_director_unidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="cedula_director_unidad">Cédula Profesional*:</label>
+                    @Html.EditorFor(model => model.cedula_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cedula_director_unidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="especialidad_director_unidad">Especialidad*:</label>
+                    @Html.EditorFor(model => model.especialidad_director_unidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.especialidad_director_unidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="folio_licencia_sanitaria">Número de Licencia Sanitaria*:</label>
+                    @Html.EditorFor(model => model.folio_licencia_sanitaria, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.folio_licencia_sanitaria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group datepicker-group">
+                    <label class="control-label" for="fe_emision_licencia_sanitaria">Fecha de emisión*:</label>
+                    @Html.EditorFor(model => model.fe_emision_licencia_sanitaria, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    @Html.ValidationMessageFor(model => model.fe_emision_licencia_sanitaria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group datepicker-group">
+                    <label class="control-label" for="fe_vigencia_licencia_sanitaria">Fecha de vigencia*:</label>
+                    @Html.EditorFor(model => model.fe_vigencia_licencia_sanitaria, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    @Html.ValidationMessageFor(model => model.fe_vigencia_licencia_sanitaria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="folio_aviso_responsable">Folio Aviso Responsable*:</label>
+                    @Html.EditorFor(model => model.folio_aviso_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.folio_aviso_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group datepicker-group">
+                    <label class="control-label" for="fe_emision_aviso_responsable">Fecha de emisión*:</label>
+                    @Html.EditorFor(model => model.fe_emision_aviso_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    @Html.ValidationMessageFor(model => model.fe_emision_aviso_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group datepicker-group">
+                    <label class="control-label" for="fe_vigencia_aviso_responsable">Fecha de vigencia*:</label>
+                    @Html.EditorFor(model => model.fe_vigencia_aviso_responsable, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    @Html.ValidationMessageFor(model => model.fe_vigencia_aviso_responsable, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="calle">Calle*:</label>
+                    @Html.EditorFor(model => model.calle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.calle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label" for="no_ext"># ext*:</label>
+                    @Html.EditorFor(model => model.no_ext, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.no_ext, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label" for="no_int"># int:</label>
+                    @Html.EditorFor(model => model.no_int, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="entre_calle1">Entre la Calle:</label>
+                    @Html.EditorFor(model => model.entre_calle1, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="entre_calle1">Y la Calle:</label>
+                    @Html.EditorFor(model => model.entre_calle2, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="colonia">Colonia*:</label>
+                    @Html.EditorFor(model => model.colonia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.colonia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="control-label" for="cp">C.P.*:</label>
+                    @Html.EditorFor(model => model.cp, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="municipio">Municipio*:</label>
+                    @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label" for="ciudad">Ciudad*:</label>
+                    @Html.EditorFor(model => model.ciudad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ciudad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label" for="id_entidad_federativa">Entidad Federativa*:</label>
+                    @Html.DropDownList("id_entidad_federativa", null, "-Seleccione la Entidad Federativa-", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="form-group">
+                    <label class="control-label" for="observaciones">Observaciones:</label>
+                    @Html.TextAreaFor(model => model.observaciones, new { @class = "form-control", @rows = "4", @placeholder = "Escriba información relevante del Establecimiento o Solicitud" })
+                    @Html.ValidationMessageFor(model => model.observaciones, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="control-label" for="">Informes requeridos:</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="CNTS-01-002"><strong data-placement="right" data-toggle="tooltip" title="Informe Mensual de la Disposición de Células Progenitoras o Trocales">CNTS-01-002</strong>
+                        </label>
+                        <br />
+                        <label>
+                            <input type="checkbox" value="CNTS-01-003-A"> CNTS-01-003-A
+                        </label>
+                        <br />
+                        <label>
+                            <input type="checkbox" value="CNTS-01-003-B"> CNTS-01-003-B
+                        </label>
+                        <br />
+                        <label>
+                            <input type="checkbox" value="CNTS-01-003-C"> CNTS-01-003-C
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 pull-right">
+                <div class="form-group pull-right">
+                    @Html.ActionLink("Regresar", "Paso1", new { @controller = "SolicitudIncorporacion" }, new { @class = "btn btn-default" })
+                    &emsp;&emsp;
+                    @Html.ActionLink("Rechazar Solicitud", "Paso1", new { @controller = "SolicitudIncorporacion" }, new { @class = "btn btn-danger" })
+                    <input type="submit" value="Aceptar Solicitud" class="btn btn-primary" id="submit" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

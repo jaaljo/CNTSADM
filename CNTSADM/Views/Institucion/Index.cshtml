@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CNTS.Models.c_institucion>
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+    ViewBag.Title = "Instituciones";
+}
+
+<h2>Instituciones</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create", "Institucion", new { @class = "btn btn-primary" })
+</p>
+<table id="results" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Clave</th>
+            <th>Institución</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cl_institucion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nb_institucion)
+                </td>
+                <td align="center">
+                    <a href="@Url.Action("Edit", new { id = item.id_institucion })">
+                        <i class="glyphicon glyphicon-edit" title="Editar"></i>
+                    </a>|
+                    <a href="@Url.Action("Delete", new { id = item.id_institucion })">
+                        <i class="glyphicon glyphicon-trash" title="Borrar"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

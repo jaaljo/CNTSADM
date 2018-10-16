@@ -1,0 +1,43 @@
+﻿@model CNTS.Models.c_rol
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>¿Borrar el registro?</h3>
+<div>
+    <h4>Rol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Clave
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_rol)
+        </dd>
+
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_rol)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-primary" /> |
+            <a class="btn btn-default" href="javascript:history.back()">Regresar</a>
+        </div>
+    }
+</div>

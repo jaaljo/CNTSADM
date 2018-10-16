@@ -1,0 +1,62 @@
+﻿@model CNTS.Models.c_tipo_establecimiento
+@{
+    ViewBag.Title = "Agregar";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<script type="text/javascript" src="~/Scripts/sharedScripts.js"></script>
+
+<h2>Agregar</h2>
+
+@using (Html.BeginForm("Create", "TipoEstablecimiento", FormMethod.Post, new { onsubmit = "deshabilitar()" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal well">
+        <h4>Tipos de Establecimiento</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group has-error">
+                <label class="control-label col-xs-3 col-md-2">Clave</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.cl_tipo_establecimiento, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Corresponde a la clave que se le asignará al Tipo de Establecimiento.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cl_tipo_establecimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group has-error">
+                <label class="control-label col-xs-3 col-md-2">Nombre</label>
+                <div class="col-xs-6 col-md-5">
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.nb_tipo_establecimiento, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" title="Atención" data-toggle="popover" data-trigger="hover" data-content="Nombre del Tipo de Establecimiento.">
+                                <i class="glyphicon glyphicon-question-sign"></i>
+                            </button>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nb_tipo_establecimiento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-6 col-md-5">
+                    <input type="submit" value="Guardar" class="btn btn-primary" id="submit" />
+                    @Html.ActionLink("Regresar", "Index", "TipoEstablecimiento", new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CNTS.Models.c_tipo_establecimiento>
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+    ViewBag.Title = "Tipos de Establecimiento";
+}
+
+<h2>Tipos de Establecimiento</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create", "TipoEstablecimiento", new { @class = "btn btn-default btn-sm" })
+</p>
+<table id="results" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Clave</th>
+            <th>Tipo de Establecimiento</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cl_tipo_establecimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nb_tipo_establecimiento)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.id_tipo_establecimiento })">
+                        <i class="glyphicon glyphicon-pencil" title="Editar"></i>
+                    </a> |
+                    <a href="@Url.Action("Delete", new { id = item.id_tipo_establecimiento })">
+                        <i class="glyphicon glyphicon-trash" title="Borrar"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CNTS.Models.k_solicitud_incorporacion>
+
+@{
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h3>Solicitudes de Incorporación</h3>
+
+<table id="results" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Folio</th>
+            <th>Código</th>
+            <th>Solicitud</th>
+            <th>Licencia</th>
+            <th>Establecimiento</th>
+            <th>Entidad</th>
+            <th>Institución</th>
+            <th>Tipo</th>
+            <th ></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_solicitud_incorporacion)
+                </td>
+                <td style="white-space: nowrap">
+                    @Html.DisplayFor(modelItem => item.codigo_establecimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fe_solicitud)
+                </td>
+                <td style="white-space: nowrap">
+                    @Html.DisplayFor(modelItem => item.folio_licencia_sanitaria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nb_establecimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.c_entidad_federativa.nb_entidad_federativa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.c_institucion.cl_institucion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.c_tipo_establecimiento.nb_tipo_establecimiento)
+                </td>
+                <td style="white-space: nowrap">
+                    <a href="@Url.Action("Revisar", new { id = item.id_solicitud_incorporacion })" style="text-decoration:none">
+                        <i class="glyphicon glyphicon-eye-open" title="Revisar"></i>
+                    </a> |
+                    <a href="@Url.Action("Borrar", new { id = item.id_solicitud_incorporacion })" style="text-decoration:none">
+                        <i class="glyphicon glyphicon-trash" title="Borrar"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,286 @@
+﻿@model IEnumerable<CNTS.Models.c_establecimiento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.uuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.folio_secuencial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_establecimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.folio_licencia_sanitaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_emision_licencia_sanitaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_vigencia_licencia_sanitaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.folio_aviso_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_emision_aviso_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_vigencia_aviso_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_establecimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.razon_social)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rfc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.calle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_ext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.no_int)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entre_calle1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entre_calle2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colonia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.municipio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_principal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.especialidad_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_director_unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.especialidad_director_unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula_director_unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_contacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password_anterior)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_archivo_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_archivo_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_ultimo_acceso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_cambio_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_entidad_federativa.cl_entidad_federativa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_estatus_establecimiento.cl_estatus_establecimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_institucion.cl_institucion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.uuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.folio_secuencial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_establecimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.folio_licencia_sanitaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_emision_licencia_sanitaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_vigencia_licencia_sanitaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.folio_aviso_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_emision_aviso_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_vigencia_aviso_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_establecimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.razon_social)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rfc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_ext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_int)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entre_calle1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entre_calle2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colonia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.municipio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_principal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.especialidad_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cedula_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_director_unidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.especialidad_director_unidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cedula_director_unidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_contacto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password_anterior)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_archivo_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_archivo_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esta_activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_ultimo_acceso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_cambio_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_entidad_federativa.cl_entidad_federativa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_estatus_establecimiento.cl_estatus_establecimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_institucion.cl_institucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_establecimiento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_establecimiento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_establecimiento })
+        </td>
+    </tr>
+}
+
+</table>

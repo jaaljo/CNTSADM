@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CNTS.Models.c_periodo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cl_periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nb_periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_apertura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fe_cierre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cl_periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nb_periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_apertura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fe_cierre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esta_activo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_periodo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_periodo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_periodo })
+        </td>
+    </tr>
+}
+
+</table>

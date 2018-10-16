@@ -1,0 +1,369 @@
+﻿@model CNTS.Models.c_establecimiento
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layoutgmx.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>c_establecimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.uuid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uuid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio_secuencial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio_secuencial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio_licencia_sanitaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio_licencia_sanitaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_emision_licencia_sanitaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_emision_licencia_sanitaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_vigencia_licencia_sanitaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_vigencia_licencia_sanitaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.folio_aviso_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.folio_aviso_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_emision_aviso_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_emision_aviso_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_vigencia_aviso_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_vigencia_aviso_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.razon_social)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.razon_social)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rfc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rfc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.calle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.calle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_ext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_ext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_int)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_int)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entre_calle1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entre_calle1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entre_calle2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entre_calle2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colonia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colonia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_principal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_principal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.especialidad_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.especialidad_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cedula_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cedula_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_director_unidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_director_unidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.especialidad_director_unidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.especialidad_director_unidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cedula_director_unidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cedula_director_unidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password_anterior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password_anterior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_archivo_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_archivo_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nb_archivo_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nb_archivo_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.esta_activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.esta_activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_ultimo_acceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_ultimo_acceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fe_cambio_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fe_cambio_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_entidad_federativa.cl_entidad_federativa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_entidad_federativa.cl_entidad_federativa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_estatus_establecimiento.cl_estatus_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_estatus_establecimiento.cl_estatus_establecimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_institucion.cl_institucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_institucion.cl_institucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c_tipo_establecimiento.cl_tipo_establecimiento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
